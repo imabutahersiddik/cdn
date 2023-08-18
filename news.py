@@ -5,7 +5,7 @@ import os
 from github import Github
 
 # Set up the GitHub API
-g = Github
+g = Github()
 repo = g.get_repo("cdn")
 
 # Scrape the latest earthquake data
@@ -19,17 +19,9 @@ magnitude = earthquake["mag"]
 place = earthquake["place"]
 time = earthquake["time"]
 
-# Generate a news article using GPT-3
+# Generate a news article
 prompt = f"Write a news article about a {magnitude} magnitude earthquake that occurred in {place} at {time}."
-response = openai.Completion.create(
-    engine="text-davinci-002",
-    prompt=prompt,
-    max_tokens=2048,
-    n=1,
-    stop=None,
-    temperature=0.5,
-)
-article = response.choices[0].text
+article = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ac enim sed justo molestie elementum. Nullam vel odio auctor, cursus massa eu, ornare nibh. Sed euismod tellus eu nisl luctus, eu pulvinar elit eleifend. Sed semper, mauris eu consequat feugiat, lorem mauris tincidunt elit, eget volutpat lectus felis in risus. Donec euismod, enim vel euismod tincidunt, urna velit bibendum est, vitae vulputate sem metus vitae nulla. Sed ac enim sed justo molestie elementum. Nullam vel odio auctor, cursus massa eu, ornare nibh."
 
 # Create a new GitHub issue with the news article
 title = f"{magnitude} magnitude earthquake in {place}"
