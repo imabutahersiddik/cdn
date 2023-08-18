@@ -1,4 +1,4 @@
-name: "Generate Earthquake News"
+name: "GenerateEarthquake News"
 
 on:
   schedule:
