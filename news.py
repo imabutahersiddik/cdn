@@ -2,7 +2,7 @@ import openai
 import requests
 import json
 import os
-from github import Github
+from github import github
 
 # Set up the OpenAI API
 openai.api_key = os.environ["sk-MKEmkPoqS4Edt5hwCVYmb4s2wA8IvIBAxcKiF8XqOZz8HRhb"]
