@@ -7,7 +7,7 @@ from github import Github
 # Set up the GitHub API with authentication
 access_token = os.environ["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"]  # replace with your own access token
 g = Github(login_or_token=access_token)
-repo = g.get_repo("imabutahersiddik/cdn")
+repo = g.get_repo("cdn")
 
 # Scrape the latest earthquake data
 url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.geojson"
