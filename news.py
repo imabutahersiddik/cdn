@@ -9,7 +9,7 @@ openai.api_key = os.environ["sk-MKEmkPoqS4Edt5hwCVYmb4s2wA8IvIBAxcKiF8XqOZz8HRhb
 openai.api_base = "https://api.chatanywhere.cn"
 
 # Set up the GitHub API
-g = Github("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")
+g = Github("")
 repo = g.get_repo("cdn")
 
 # Scrape the latest earthquake data
