@@ -5,7 +5,7 @@ import os
 from github import Github
 
 # Set up the GitHub API with authentication
-access_token = os.environ["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"]  # replace with your own access token
+access_token = os.environ["GITHUB"]  # replace with your own access token
 g = Github(login_or_token=access_token)
 repo = g.get_repo("cdn")
 
