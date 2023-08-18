@@ -46,11 +46,9 @@
 }
 
 function decrypt() {
-    var path = window.location.pathname;
-    var pathParts = path.split('/');
-
-    if (pathParts[1] === 'site' && pathParts[2]) {
-        var encryptedHtml = decodeURIComponent(pathParts[2]);
+    var urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('site')) {
+        var encryptedHtml = decodeURIComponent(urlParams.get('site'));
         var decrypted = CryptoJS.AES.decrypt(encryptedHtml, "ALLAH");
         var html = decrypted.toString(CryptoJS.enc.Utf8);
         document.getElementById('man-creator-is-one-he-is-allah').innerHTML = html;
@@ -63,7 +61,7 @@ function decrypt() {
         // Show the form fields
         document.getElementById('html-code').style.display = 'block';
         document.querySelector('form button:first-of-type').style.display = 'inline-block';
-               document.querySelector('form button:last-of-type').style.display = 'none';
+        document.querySelector('form button:last-of-type').style.display = 'none';
     }
 }
 
@@ -76,17 +74,5 @@ function copyURL() {
 // Call the decrypt function on page load
 decrypt();
 
-// Hide the form fields if data is available in the query parameter
-var urlParams = new URLSearchParams(window.location.search);
-if (urlParams.has('site')) {
-    var siteValue = decodeURIComponent(urlParams.get('site'));
-    document.getElementById('html-code').style.display = 'none';
-    document.querySelector('form button:first-of-type').style.display = 'none';
-    document.querySelector('form button:last-of-type').style.display = 'none';
-    // Use the decoded value as needed
-    console.log(siteValue);
-} else {
-    document.querySelector('form button:first-of-type').style.display = 'inline-block';
-}
 
 </script> <div id="encrypted-url"></div> <div id="man-creator-is-one-he-is-allah"></div> </body> </html>
