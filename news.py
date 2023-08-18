@@ -4,6 +4,8 @@ import json
 import os
 from github import Github
 
+# Set up the GitHub API
+g = Github
 repo = g.get_repo("cdn")
 
 # Scrape the latest earthquake data
