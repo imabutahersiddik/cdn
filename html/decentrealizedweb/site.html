@@ -76,9 +76,9 @@ function copyURL() {
 // Call the decrypt function on page load
 decrypt();
 
-// Hide the form fields if data is available in the URL
-var pathParts = window.location.pathname.split('/');
-if (pathParts[1] === 'site' && pathParts[2]) {
+// Hide the form fields if data is available in the query parameter
+var urlParams = new URLSearchParams(window.location.search);
+if (urlParams.has('site')) {
     document.getElementById('html-code').style.display = 'none';
     document.querySelector('form button:first-of-type').style.display = 'none';
     document.querySelector('form button:last-of-type').style.display = 'none';
